@@ -1,7 +1,7 @@
 package com.apphooks;
 
-import com.factory.DriverFactory;
-import com.utils.ConfigReader;
+import com.framework.factory.DriverFactory;
+import com.framework.utils.ConfigReader;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -29,6 +29,7 @@ public class ApplicationHooks {
     public void launchBrowser() {
         driverFactory = new DriverFactory();
         driver = driverFactory.initDriver(prop.getProperty("browser"));
+        driver.get(prop.getProperty("url"));
     }
 
     @After(order = 0)
