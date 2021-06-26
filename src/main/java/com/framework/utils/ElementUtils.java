@@ -1,4 +1,4 @@
-package com.utils;
+package com.framework.utils;
 
 public class ElementUtils {
 }

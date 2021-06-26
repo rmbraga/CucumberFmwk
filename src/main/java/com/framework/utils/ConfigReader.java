@@ -1,4 +1,4 @@
-package com.utils;
+package com.framework.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
