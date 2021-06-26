@@ -1,4 +1,4 @@
-package com.pages;
+package com.framework.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,10 +16,6 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public String getLoginPageTitle() {
-        return driver.getTitle();
-    }
-
     public boolean isForgotPwdLinkPresent() {
         return driver.findElement(forgotPwdLink).isDisplayed();
     }
@@ -34,5 +30,12 @@ public class LoginPage {
 
     public void clickOnLogin() {
         driver.findElement(signInButton).click();
+    }
+
+    public AccountsPage doLogin(String username, String pwd) {
+        enterUsername(username);
+        enterPwd(pwd);
+        clickOnLogin();
+        return new AccountsPage(driver);
     }
 }

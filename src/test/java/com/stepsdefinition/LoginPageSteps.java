@@ -1,7 +1,8 @@
 package com.stepsdefinition;
 
-import com.factory.DriverFactory;
-import com.pages.LoginPage;
+import com.framework.utils.WebDriverCommon;
+import com.framework.factory.DriverFactory;
+import com.framework.pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,19 +10,20 @@ import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
 
-public class LoginPageSteps {
+public class LoginPageSteps extends WebDriverCommon {
 
     private String title;
     private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
 
     @Given("user is on login page")
     public void user_is_on_login_page() {
-        DriverFactory.getDriver().get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        user_gets_the_title_of_the_page();
+        page_title_should_be(title);
     }
 
     @When("user gets the title of the page")
     public void user_gets_the_title_of_the_page() {
-        title = loginPage.getLoginPageTitle();
+        title = getPageTitle();
     }
 
     @Then("page title should be {string}")

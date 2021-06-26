@@ -1,4 +1,4 @@
-Feature: Login page feature
+Feature: Login Page Feature
 
   Scenario: Login page title
     Given user is on login page
